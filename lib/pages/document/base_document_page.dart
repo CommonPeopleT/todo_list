@@ -1,33 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_list/model/todo_item.dart';
 import 'package:provider/provider.dart';
 
-import 'edit_todo_bloc.dart';
+import 'base_document_bloc.dart';
 
-class EditTodoPage extends StatelessWidget{
-  final TodoItem item;
-  EditTodoPage({@required this.item});
+
+class BaseDocumentPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return  Provider<EditTodoBloc>(
-      create: (context) => EditTodoBloc(item),
-      child: EditTodo(),
-      dispose: (context,value) => value.dispose(),
-    );
-  }
-
-}
-
-class EditTodo extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    var bloc = Provider.of<EditTodoBloc>(context);
+    var bloc = Provider.of<BaseDocumentBloc>(context);
 
     return Scaffold(
         appBar: AppBar(
-          title: Text("EditTodoPage"),
+          title: Text(bloc.appBarTitle),
         ),
         body: Container(
           child: Column(

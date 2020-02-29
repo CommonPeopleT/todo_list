@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/model/base_bloc.dart';
 import 'package:todo_list/model/todo_item.dart';
-import 'package:todo_list/pages/create_todo/create_todo_page.dart';
-import 'package:todo_list/pages/edit_todo/edit_todo_page.dart';
+import 'package:todo_list/pages/document/create_todo/create_todo_page.dart';
+import 'package:todo_list/pages/document/edit_todo/edit_todo_page.dart';
 import 'package:todo_list/pages/todo_detail/todo_detail_page.dart';
 import 'package:todo_list/sql/sql_provider.dart';
 

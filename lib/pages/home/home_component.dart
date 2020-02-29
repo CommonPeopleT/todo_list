@@ -48,15 +48,15 @@ class HomeComponent extends StatelessWidget{
         border: Border(
           bottom: BorderSide(color: Colors.black38),
         ),
-        
       ),
+
       child: GestureDetector(
         onTap: () => bloc.gotoTodoDetailPage(context, item: item),
         onDoubleTap: () => bloc.gotoEditTodoPage(context,item: item),
         onLongPress: () => bloc.deleteItem(item: item),
         child: Text(item.title),
       ),
-    );
 
+    );
   }
 }
