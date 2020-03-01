@@ -12,10 +12,7 @@ class BaseDocumentPage extends StatelessWidget{
     var bloc = Provider.of<BaseDocumentBloc>(context);
 
     return Scaffold(
-        appBar: AppBar(
-          title: Text(bloc.appBarTitle),
-        ),
-        body: Container(
+        body: SingleChildScrollView(
           child: Column(
             children:[
               TextFormField(
@@ -32,7 +29,8 @@ class BaseDocumentPage extends StatelessWidget{
               TextFormField(
                 initialValue: bloc.item?.detail ?? "",
                 enabled: true,
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.multiline,
+                maxLines: null,
                 onChanged: bloc.onDetailChanged,
                 decoration: const InputDecoration(
                   icon: Icon(Icons.text_fields),
