@@ -31,7 +31,7 @@ class HomeBloc extends BaseBloc{
     requestAllItems();
   }
 
-  void gotoTodoDetailPage(BuildContext context,{TodoItem item}){
+  void showDetailPage(BuildContext context,{TodoItem item}){
     showDialog(
       context: context,
       builder: (_) =>
@@ -61,6 +61,28 @@ class HomeBloc extends BaseBloc{
             }
         )
     );
+  }
+
+  void showDeleteItemDialog(BuildContext context,{@required TodoItem item}){
+    showDialog(context: context,
+        builder: (_){
+          return AlertDialog(
+            title: Text('削除しますか？'),
+            content: Text('title: ${item.title}'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Yes'),
+                onPressed: (){
+                  deleteItem(item: item);
+                  Navigator.pop(context);
+                }),
+              FlatButton(
+                child: Text('No'),
+                onPressed: () => Navigator.pop(context),
+              )
+            ],
+          );
+        });
   }
 
   void deleteItem({@required TodoItem item}){

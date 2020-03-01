@@ -51,9 +51,9 @@ class HomeComponent extends StatelessWidget{
       ),
 
       child: GestureDetector(
-        onTap: () => bloc.gotoTodoDetailPage(context, item: item),
+        onTap: () => bloc.showDetailPage(context, item: item),
         onDoubleTap: () => bloc.gotoEditTodoPage(context,item: item),
-        onLongPress: () => bloc.deleteItem(item: item),
+        onLongPress: () => bloc.showDeleteItemDialog(context, item: item),
         child: Text(item.title),
       ),
 
