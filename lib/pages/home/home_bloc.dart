@@ -10,7 +10,6 @@ import 'package:todo_list/pages/todo_detail/todo_detail_page.dart';
 import 'package:todo_list/sql/sql_provider.dart';
 
 class HomeBloc extends BaseBloc{
-  SqlProvider _sql;
 
   StreamController<List<TodoItem>> _todoItemListStreamController = StreamController.broadcast();
   StreamSink<List<TodoItem>> get _todoItemListSink => _todoItemListStreamController.sink;
@@ -20,14 +19,13 @@ class HomeBloc extends BaseBloc{
   Future<void> requestAllItems() async{
     await Future.delayed(Duration(milliseconds: 10));
 
-    _sql.fetchAllItems().then((itemList){
+    SqlProvider().fetchAllItems().then((itemList){
       itemList.add(TodoItem(detail: 'detail',title: 'title'));
       _todoItemListSink.add(itemList);
     });
   }
 
   HomeBloc(){
-    _sql = SqlProvider();
     requestAllItems();
   }
 
@@ -88,7 +86,7 @@ class HomeBloc extends BaseBloc{
 
   void deleteItem({@required TodoItem item}){
     if(item.id == null)return;
-    _sql.deleteItem(id: item.id);
+    SqlProvider().deleteItem(id: item.id);
     Future.delayed(Duration(milliseconds: 10)); // 削除しても残っているのはかなり面倒なのでこれだけ特別に更新は自動で行う
     requestAllItems();
   }

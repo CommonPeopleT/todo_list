@@ -9,7 +9,7 @@ class BaseDocumentPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    var bloc = Provider.of<BaseDocumentBloc>(context);
+    final bloc = Provider.of<BaseDocumentBloc>(context);
 
     return Scaffold(
         body: SingleChildScrollView(

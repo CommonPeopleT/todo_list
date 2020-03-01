@@ -8,13 +8,13 @@ import '../base_document_bloc.dart';
 import 'edit_todo_bloc.dart';
 
 class EditTodoPage extends StatelessWidget{
-  final TodoItem item;
-  EditTodoPage({@required this.item});
+  final TodoItem _item;
+  EditTodoPage({@required item}): _item = item;
 
   @override
   Widget build(BuildContext context) {
     return  Provider<BaseDocumentBloc>(
-      create: (context) => EditTodoBloc(item),
+      create: (context) => EditTodoBloc(_item),
       child: BaseDocumentPage(),
       dispose: (context,value) => value.dispose(),
     );
