@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_list/model/todo_item.dart';
 
 class TodoDetailPage extends StatelessWidget{
-  final TodoItem item;
-  TodoDetailPage({@required this.item});
+  final TodoItem _item;
+  TodoDetailPage({@required item}): _item = item;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class TodoDetailPage extends StatelessWidget{
       margin: const EdgeInsets.all(5),
       padding: const EdgeInsets.all(5),
       child: Text(
-        this.item.detail,
+        this._item.detail,
         style: const TextStyle(
           fontSize: 24,
         ),

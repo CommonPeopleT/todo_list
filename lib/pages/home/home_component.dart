@@ -34,7 +34,7 @@ class HomeComponent extends StatelessWidget{
                   return ListView(
                     children: <Widget>[
                       for(var item in snapshot.data)
-                        listItem(bloc: bloc, context: context, item: item),
+                        _listItem(bloc: bloc, context: context, item: item),
                     ],
                   );
                 }
@@ -42,7 +42,7 @@ class HomeComponent extends StatelessWidget{
         ),
       );
   }
-  Widget listItem({@required HomeBloc bloc,@required BuildContext context,@required TodoItem item}){
+  Widget _listItem({@required HomeBloc bloc,@required BuildContext context,@required TodoItem item}){
     return Container(
       padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: 2.5),
