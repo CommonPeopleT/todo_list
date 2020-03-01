@@ -40,6 +40,7 @@ class HomeBloc extends BaseBloc{
             children: <Widget>[
               TodoDetailPage(item:item),
             ],
+            backgroundColor: Colors.lightBlue[100],
           )
     );
   }

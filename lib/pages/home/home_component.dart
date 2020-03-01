@@ -44,6 +44,8 @@ class HomeComponent extends StatelessWidget{
   }
   Widget listItem({@required HomeBloc bloc,@required BuildContext context,@required TodoItem item}){
     return Container(
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.symmetric(horizontal: 2.5),
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Colors.black38),
@@ -54,7 +56,13 @@ class HomeComponent extends StatelessWidget{
         onTap: () => bloc.showDetailPage(context, item: item),
         onDoubleTap: () => bloc.gotoEditTodoPage(context,item: item),
         onLongPress: () => bloc.showDeleteItemDialog(context, item: item),
-        child: Text(item.title),
+        child: Text(
+          item.title,
+          style: TextStyle(
+            fontSize: 32,
+          ),
+          maxLines: 1,
+        ),
       ),
 
     );
