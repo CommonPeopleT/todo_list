@@ -8,10 +8,16 @@ class TodoDetailPage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
-          child: Text(this.item.detail)
+    return Container(
+      margin: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
+      child: Text(
+        this.item.detail,
+        style: const TextStyle(
+          fontSize: 24,
+        ),
       ),
+      color: Colors.white,
     );
   }
 }
