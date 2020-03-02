@@ -20,7 +20,6 @@ class HomeBloc extends BaseBloc{
     await Future.delayed(Duration(milliseconds: 10));
 
     SqlProvider().fetchAllItems().then((itemList){
-      itemList.add(TodoItem(detail: 'detail',title: 'title'));
       _todoItemListSink.add(itemList);
     });
   }
